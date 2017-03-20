@@ -5,9 +5,11 @@
   color: $video-react-primary-foreground-color;
   background-color: #000;
   position: relative;
-  font-size: 10px;
+  font-size: 25px;
   line-height: 1;
   font-family: $video-react-text-font-family;
+  overflow: hidden;
+  z-index:10;
 
   @include user-select(none);
 

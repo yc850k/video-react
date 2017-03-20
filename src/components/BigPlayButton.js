@@ -27,19 +27,21 @@ export default class BigPlayButton extends Component {
   }
 
   render() {
-    const { player, position } = this.props;
+    const { player, position, style, className } = this.props;
     if (player.hasStarted || !player.currentSrc) {
       return null;
     }
     return (
       <button
         className={classNames(
+	  {[className]:!!className},
           'video-react-big-play-button',
-          `video-react-big-play-button-${position}`
+          `video-react-big-play-button-${position}`,
         )}
         type="button"
         aria-live="polite"
         tabIndex="0"
+        style={style}
         onClick={this.handleClick}
       >
         <span className="video-react-control-text">Play Video</span>
