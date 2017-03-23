@@ -8,6 +8,9 @@
   height: 3.0em;
 
   @include background-color-with-alpha($video-react-primary-background-color, $video-react-primary-background-transparency);
+  &.video-react-control-bar-top {
+    top:0;
+  }
 }
 
 // Video has started playing

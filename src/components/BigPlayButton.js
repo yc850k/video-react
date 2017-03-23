@@ -5,10 +5,12 @@ const propTypes = {
   actions: PropTypes.object,
   player: PropTypes.object,
   position: PropTypes.string,
+  disableOnPause: PropTypes.bool,
 };
 
 const defaultProps = {
   position: 'left',
+  disableOnPause: true,
 };
 
 export default class BigPlayButton extends Component {
@@ -27,8 +29,11 @@ export default class BigPlayButton extends Component {
   }
 
   render() {
-    const { player, position, style, className } = this.props;
-    if (player.hasStarted || !player.currentSrc) {
+    const { player, position, style, className, disableOnPause } = this.props;
+    if (
+      (disableOnPause && player.paused || !player.paused) && player.hasStarted ||
+      !player.currentSrc
+    ) {
       return null;
     }
     return (

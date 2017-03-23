@@ -4,10 +4,15 @@ const propTypes = {
   poster: PropTypes.string,
   player: PropTypes.object,
   actions: PropTypes.object,
+  disableOnPause: PropTypes.bool,
 };
 
-function PosterImage({ poster, player, actions }) {
-  if (!poster || player.hasStarted) {
+
+function PosterImage({ poster, player, actions, disableOnPause = true }) {
+  if (
+    (disableOnPause && player.paused || !player.paused) && player.hasStarted ||
+    !poster
+  ) {
     return null;
   }
 

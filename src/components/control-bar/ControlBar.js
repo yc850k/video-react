@@ -20,11 +20,13 @@ const propTypes = {
   children: PropTypes.any,
   autoHide: PropTypes.bool,
   disableDefaultControls: PropTypes.bool,
+  position: PropTypes.string,
 };
 
 
 const defaultProps = {
   autoHide: true,
+  position: 'bottom',
 };
 
 
@@ -139,10 +141,11 @@ export default class ControlBar extends Component {
   }
 
   render() {
-    const { autoHide,style} = this.props;
+    const { autoHide, style, position } = this.props;
     const children = this.getChildren();
     return (
-      <div className={classNames('video-react-control-bar', {
+      <div className={classNames('video-react-control-bar',
+	`video-react-control-bar-${position}`, {
         'video-react-control-bar-auto-hide': autoHide
       })}
            style={style}>
