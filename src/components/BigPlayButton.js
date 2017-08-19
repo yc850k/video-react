@@ -29,10 +29,11 @@ export default class BigPlayButton extends Component {
   }
 
   render() {
-    const { player, position, style, className, disableOnPause } = this.props;
+    const { player, position, style, className, disableOnPause, disable } = this.props;
     if (
       (disableOnPause && player.paused || !player.paused) && player.hasStarted ||
-      !player.currentSrc
+      !player.currentSrc ||
+      disable
     ) {
       return null;
     }
